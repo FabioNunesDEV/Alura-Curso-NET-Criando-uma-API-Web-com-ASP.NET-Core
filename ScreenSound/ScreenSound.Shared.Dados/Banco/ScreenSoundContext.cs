@@ -19,6 +19,6 @@ public class ScreenSoundContext: DbContext
     {
         optionsBuilder
             .UseSqlServer(connectionString)
-            .UseLazyLoadingProxies(); 
+            .UseLazyLoadingProxies(false); // Desabilita a criação de proxies dinâmicos
     }
 }
