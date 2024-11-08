@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ScreenSound.API.Requests;
+using ScreenSound.API.Response;
 using ScreenSound.Banco;
 using ScreenSound.Modelos;
 using System.Runtime.CompilerServices;
@@ -58,7 +59,7 @@ namespace ScreenSound.API.EndPoints
                 {
                     return Results.NotFound();
                 }
-                artistaAAtualizar.Nome = artistaAAtualizar.nome;
+                artistaAAtualizar.Nome = artistaAAtualizar.Nome;
                 artistaAAtualizar.Bio = artistaAAtualizar.Bio;
                 artistaAAtualizar.FotoPerfil = artistaAAtualizar.FotoPerfil;
 
@@ -66,6 +67,16 @@ namespace ScreenSound.API.EndPoints
                 return Results.Ok();
 
             });
+        }
+
+        private static ICollection<ArtistaResponse> EntityListToResponseList(IEnumerable<Artista> listaDeArtistas)
+        {
+            return listaDeArtistas.Select(a => EntityToResponse(a)).ToList();
+        }
+
+        private static ArtistaResponse EntityToResponse(Artista artista)
+        {
+            return new ArtistaResponse(artista.Id, artista.Nome, artista.Bio, artista.FotoPerfil);
         }
     }
 }
