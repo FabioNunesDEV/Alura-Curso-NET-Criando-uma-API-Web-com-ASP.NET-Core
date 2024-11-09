@@ -1,4 +1,6 @@
-﻿namespace ScreenSound.Modelos;
+﻿using ScreenSound.Shared.Modelos.Modelos;
+
+namespace ScreenSound.Modelos;
 
 public class Musica
 {
@@ -17,6 +19,7 @@ public class Musica
         Console.WriteLine($"Nome: {Nome}");
       
     }
+    public virtual ICollection<Genero> Generos { get; set; }
 
     public override string ToString()
     {

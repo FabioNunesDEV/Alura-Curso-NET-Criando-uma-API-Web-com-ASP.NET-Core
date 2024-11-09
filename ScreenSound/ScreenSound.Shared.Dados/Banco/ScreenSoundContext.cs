@@ -23,4 +23,11 @@ public class ScreenSoundContext: DbContext
             .UseSqlServer(connectionString)
             .UseLazyLoadingProxies(false); // Desabilita a criação de proxies dinâmicos
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Musica>()
+        .HasMany(c => c.Generos)
+        .WithMany(c => c.Musicas);
+    }
 }
