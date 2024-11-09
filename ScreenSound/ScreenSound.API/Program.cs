@@ -20,7 +20,7 @@ builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =
 var app = builder.Build();
 
 app.AddEndPointsArtistas();
-app.AddEndPointMusicas();
+app.AddEndPointsMusicas();
 
 app.UseSwagger();
 app.UseSwaggerUI();
