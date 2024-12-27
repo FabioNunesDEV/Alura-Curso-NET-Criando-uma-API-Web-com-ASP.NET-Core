@@ -78,5 +78,6 @@ namespace ScreenSound.API.EndPoints
         {
             return new ArtistaResponse(artista.Id, artista.Nome, artista.Bio, artista.FotoPerfil);
         }
+   
     }
 }

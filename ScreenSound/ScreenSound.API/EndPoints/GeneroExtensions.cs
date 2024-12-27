@@ -13,7 +13,6 @@ public static class GeneroExtensions
             dal.Adicionar(RequestToEntity(generoReq));
         });
 
-
         app.MapGet("/Generos", ([FromServices] DAL<Genero> dal) =>
         {
             return EntityListToResponseList(dal.Listar());
